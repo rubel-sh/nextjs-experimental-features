@@ -1,23 +1,44 @@
 import Image from "next/image";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
+import getConfig from "next/config";
+import { useQuery } from "@tanstack/react-query";
+import axios from "axios";
 
 const post = ({ data }) => {
     const router = useRouter();
     const [increasePopulation, setIncreasePopulation] = useState();
     const [creatorName, setCreatorName] = useState(process.env.NEXT_PUBLIC_CREATOR_NAME);
-    const [todo, setTodo] = useState({});
     const [countryInformations] = data;
 
-    const fetchTodo = async () => {
-        const res = await fetch("https://jsonplaceholder.typicode.com/todos/1");
-        const data = await res.json();
-        setTodo(data);
+    const { publicRuntimeConfig } = getConfig();
+    const { GEO_NAMES_USERNAME } = publicRuntimeConfig;
+
+    const {
+        status,
+        fetchStatus,
+        isLoading,
+        isSuccess,
+        isError,
+        isInitialLoading,
+        data: tanstackData,
+    } = useQuery({
+        queryKey: ["myTodo"],
+        queryFn: async () => await axios.get("https://jsonplaceholder.typicode.com/todos/1/"),
+    });
+
+    const vat = {
+        status: "success",
+        fetchStatus: "idle",
+        isLoading: false,
+        isSuccess: true,
+        isError: false,
+        isInitialLoading: false,
+        data: {},
     };
 
     useEffect(() => {
         setIncreasePopulation(parseInt(countryInformations.population));
-        fetchTodo();
     }, []);
 
     return (
@@ -32,7 +53,9 @@ const post = ({ data }) => {
             <div className="py-5 px-10 border-slate-500 rounded-lg relative z-10 top-1/2 bg-white/30 backdrop-blur-lg text-slate-900">
                 <div className="mt-10 space-y-2">
                     <p className="text-2xl font-light ">Official Name: {countryInformations.name.official}</p>
-                    <p className="text-2xl font-light mb-4">CSR Todo: {todo.title}</p>
+                    <p className="text-2xl font-light mb-4">
+                        CSR Todo: {isLoading ? "Loading ..." : tanstackData.data.title}
+                    </p>
                     <p className="text-2xl font-normal">Country: {countryInformations.name.common}</p>
                     <p className="text-2xl font-normal">Capital: {countryInformations.capital[0]}</p>
                     <p className="text-2xl font-normal">Region: {countryInformations.region}</p>
@@ -71,12 +94,14 @@ export async function getStaticPaths() {
     const res = await fetch("https://restcountries.com/v3.1/independent?status=true&fields=capital,name,flags");
     const data = await res.json();
 
-    const paths = data.slice.map((country) => ({ params: { country_name: country.name.common } }));
+    const paths = data.map((country) => ({ params: { country_name: country.name.common } }));
     return { paths, fallback: false };
 }
 
 export async function getStaticProps({ params }) {
     try {
+        // const username = process.env.GEO_NAMES_USERNAME;
+        // console.log(username);
         const url = `https://restcountries.com/v3.1/name/${params.country_name}?fullText=true`;
         const res = await fetch(url);
         const data = await res.json();

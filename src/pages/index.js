@@ -1,6 +1,7 @@
 import { Inter } from "next/font/google";
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect } from "react";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -10,7 +11,7 @@ export default function Home({ data }) {
             <h1 className="text-4xl mb-5">Rest Countries: {data.length}</h1>
             {/* Container */}
             <div className="flex flex-wrap gap-5 rounded-md">
-                {data.slice.map((country) => {
+                {data.map((country) => {
                     return (
                         <Link href={country.name.common} key={country.capital[0]}>
                             <div className="max-w-[230px] border rounded-md p-4 hover:shadow-lg cursor-pointer">
