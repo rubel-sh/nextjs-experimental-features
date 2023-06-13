@@ -1,4 +1,5 @@
 import { Inter } from "next/font/google";
+import Image from "next/image";
 import Link from "next/link";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -6,44 +7,41 @@ const inter = Inter({ subsets: ["latin"] });
 export default function Home({ data }) {
     return (
         <div className="max-w-[1280px] mx-auto mt-10">
-            <h1 className="text-4xl mb-5">Cards Container</h1>
+            <h1 className="text-4xl mb-5">Rest Countries: {data.length}</h1>
             {/* Container */}
             <div className="flex flex-wrap gap-5 rounded-md">
-                {/* Each Card */}
-                {data?.map((item) => (
-                    <Link key={item.id} href={`/${item.id}`}>
-                        <div
-                            className={`p-4 border rounded-lg border-slate-200 shadow-sm hover:shadow-md ${
-                                item.completed ? "bg-emerald-100" : "bg-rose-100"
-                            }`}
-                        >
-                            <h2 className="text-xl uppercase font-bold mb-4">{item.title}</h2>
-                            <div className="flex items-center">
-                                <div className="w-10 h-10 bg-orange-400 text-white font-bold grid place-items-center rounded-full">
-                                    {item.id}
+                {data.slice.map((country) => {
+                    return (
+                        <Link href={country.name.common} key={country.capital[0]}>
+                            <div className="max-w-[230px] border rounded-md p-4 hover:shadow-lg cursor-pointer">
+                                <Image
+                                    src={country.flags.svg}
+                                    alt=""
+                                    width={100}
+                                    height={100}
+                                    className=" aspect-auto rounded-md"
+                                />
+                                <div className="mt-5">
+                                    <p>{country.name.official}</p>
+                                    <h1 className="text-xl font-bold">{country.name.common}</h1>
+                                    <p>
+                                        Capital: <span className="text-sm font-thin">{country.capital}</span>
+                                    </p>
                                 </div>
-                                <p className="text-sm uppercase font-bold ml-3">
-                                    Completed: {item.completed ? "Done" : "Not"}
-                                </p>
                             </div>
-                        </div>
-                    </Link>
-                ))}
+                        </Link>
+                    );
+                })}
             </div>
         </div>
     );
 }
 
-// export async function getStaticPaths() {
-//     const res = await fetch("https://jsonplaceholder.typicode.com/todos/");
-//     const data = await res.json();
-//     const paths = data.map((post) => ({ params: { id: post.id.toString() } }));
-//     return { paths, fallback: false };
-// }
-
 export async function getStaticProps() {
     try {
-        const res = await fetch("https://jsonplaceholder.typicode.com/todos/");
+        const url = `https://restcountries.com/v3.1/independent?status=true&fields=capital,name,flags`;
+        // const res = await fetch("https://jsonplaceholder.typicode.com/todos/");
+        const res = await fetch(url);
         const data = await res.json();
         return { props: { data } };
     } catch (err) {
