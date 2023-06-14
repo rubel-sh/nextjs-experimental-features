@@ -14,33 +14,18 @@ const post = ({ data }) => {
     const { publicRuntimeConfig } = getConfig();
     const { GEO_NAMES_USERNAME } = publicRuntimeConfig;
 
-    const {
-        status,
-        fetchStatus,
-        isLoading,
-        isSuccess,
-        isError,
-        isInitialLoading,
-        data: tanstackData,
-    } = useQuery({
+    const { isLoading, data: tanstackData } = useQuery({
         queryKey: ["myTodo"],
         queryFn: async () => await axios.get("https://jsonplaceholder.typicode.com/todos/1/"),
     });
-
-    const vat = {
-        status: "success",
-        fetchStatus: "idle",
-        isLoading: false,
-        isSuccess: true,
-        isError: false,
-        isInitialLoading: false,
-        data: {},
-    };
 
     useEffect(() => {
         setIncreasePopulation(parseInt(countryInformations.population));
     }, []);
 
+    if (!data) {
+        return <div className="text-2xl">Loading ...</div>;
+    }
     return (
         <div className="max-w-[1280px] mx-auto  grid place-items-center ">
             <Image
