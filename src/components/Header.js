@@ -11,6 +11,9 @@ const Header = () => {
         <Link href="/virtuoso" class="ml-4">
           Virtuoso
         </Link>
+        <Link href="/virtuoso-list" class="ml-4">
+          Virtuoso-list
+        </Link>
       </nav>
     </header>
   );
