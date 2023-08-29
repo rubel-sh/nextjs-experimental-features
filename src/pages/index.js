@@ -1,13 +1,4 @@
-// import FlagCard from "@/components/FlagCard";
-import dynamic from "next/dynamic";
-import { Inter } from "next/font/google";
-
-const inter = Inter({ subsets: ["latin"] });
-
-
-const DynamicHeader = dynamic(() => import('@/components/FlagCard'), {
-    loading: () => <p>Loading...</p>,
-  })
+import FlagCard from "@/components/FlagCard";
 
 export default function Home({ data }) {
     return (
@@ -17,7 +8,7 @@ export default function Home({ data }) {
             <div className="grid grid-cols-resSuraGrid gap-5 rounded-md mx-auto">
                 {data.map((country) => {
                     return (
-                       <DynamicHeader country={country}/>
+                       <FlagCard key={country.name.common} country={country}/>
                     );
                 })}
             </div>
