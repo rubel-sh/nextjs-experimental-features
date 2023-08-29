@@ -9,7 +9,7 @@ const index = () => {
     <div>
       <Virtuoso
         style={{ height: "calc(100vh - 90px)" }}
-        data={generateUsers(3000)}
+        data={generateUsers(2500)}
         itemContent={(index, user) => (
           <div
             style={{

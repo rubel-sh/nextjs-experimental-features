@@ -6,7 +6,7 @@ const Header = () => {
   const { fontSize, setFontSize } = useGlobalContext();
   return (
     <header class="bg-gray-900 text-white p-4">
-      <nav class="container mx-auto flex items-center gap-x-5 w-full">
+      <nav class="container mx-auto flex items-center flex-wrap gap-5 w-full">
         <Link href="/" class="text-xl font-semibold">
           Home
         </Link>
