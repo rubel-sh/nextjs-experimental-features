@@ -1,9 +1,13 @@
+// import FlagCard from "@/components/FlagCard";
+import dynamic from "next/dynamic";
 import { Inter } from "next/font/google";
-import Image from "next/image";
-import Link from "next/link";
-import { useEffect } from "react";
 
 const inter = Inter({ subsets: ["latin"] });
+
+
+const DynamicHeader = dynamic(() => import('@/components/FlagCard'), {
+    loading: () => <p>Loading...</p>,
+  })
 
 export default function Home({ data }) {
     return (
@@ -13,18 +17,7 @@ export default function Home({ data }) {
             <div className="grid grid-cols-resSuraGrid gap-5 rounded-md mx-auto">
                 {data.map((country) => {
                     return (
-                        <Link href={country.name.common} key={country.capital[0]}>
-                            <div className=" border rounded-md hover:shadow-md cursor-pointer overflow-hidden h-full transition-all duration-300">
-                                <Image src={country.flags.svg} alt="" width={900} height={500} className="  " />
-                                <div className="mt-5 p-4 ">
-                                    <p>{country.name.official}</p>
-                                    <h1 className="text-xl font-bold">{country.name.common}</h1>
-                                    <p>
-                                        Capital: <span className="text-sm font-thin">{country.capital}</span>
-                                    </p>
-                                </div>
-                            </div>
-                        </Link>
+                       <DynamicHeader country={country}/>
                     );
                 })}
             </div>
