@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Virtuoso } from "react-virtuoso";
 import Image from "next/image";
+import usePageLoading from "@/hooks/usePageLoading";
 
 const Index = ({ data }) => {
   const [count, setCount] = useState(0);
@@ -17,6 +18,8 @@ const Index = ({ data }) => {
       </div>
     );
   };
+
+
 
   return (
     <div className="">

@@ -4,15 +4,13 @@ import React, { useEffect, useState } from "react";
 import getConfig from "next/config";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
+import usePageLoading from "@/hooks/usePageLoading";
 
 const post = ({ data }) => {
+ 
     const router = useRouter();
     const [increasePopulation, setIncreasePopulation] = useState();
-    const [creatorName, setCreatorName] = useState(process.env.NEXT_PUBLIC_CREATOR_NAME);
     const [countryInformations] = data;
-
-    const { publicRuntimeConfig } = getConfig();
-    const { GEO_NAMES_USERNAME } = publicRuntimeConfig;
 
     const { isLoading, data: tanstackData } = useQuery({
         queryKey: ["myTodo"],
@@ -23,9 +21,13 @@ const post = ({ data }) => {
         setIncreasePopulation(parseInt(countryInformations.population));
     }, []);
 
-    if (!data) {
-        return <div className="text-2xl">Loading ...</div>;
-    }
+
+    // // *********************** SSR LOADER *********************** //
+    // const loading = usePageLoading();
+    // if (loading) {
+    //     return <div className="text-2xl">Loading ...</div>;
+    // }
+
     return (
         <div className="max-w-[1280px] mx-auto  grid place-items-center ">
             <Image
