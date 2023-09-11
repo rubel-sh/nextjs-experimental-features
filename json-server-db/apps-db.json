@@ -1,0 +1,108 @@
+{
+    "ourApps": [
+        {
+            "id": "1",
+            "title": "Al hadith",
+            "short_description": "Al hadith",
+            "long_description": "Al hadith is an app where you can read hadiths from different books. You can also search hadiths by keywords. You can also share hadiths with your friends and family.",
+            "whats_new": "Al hadith",
+            "link": "/al-hadith",
+            "releases_link": "/ourApps/alhadith/releases"
+        },
+        {
+            "id": "2",
+            "title": "quran mazid",
+            "short_description": "quran mazid",
+            "long_description": "quran mazid is an app where you can read quran mazid from different books. You can also search quran mazid by keywords. You can also share quran mazid with your friends and family.",
+            "whats_new": "quran mazid",
+            "link": "/quran-mazid",
+            "releases_link": "/ourApps/quran/releases"
+        },
+        {
+            "id": "3",
+            "title": "Dua Ruqyah",
+            "short_description": "Dua Ruqyah",
+            "long_description": "Dua Ruqyah is an app where you can read Dua Ruqyah from different books. You can also search Dua Ruqyah by keywords. You can also share Dua Ruqyah with your friends and family.",
+            "whats_new": "Dua Ruqyah",
+            "link": "/dua-ruqyah",
+            "releases_link": "/ourApps/dua/releases"
+        }
+    ],
+    "releases": [
+        {
+            "id": "alhadith",
+            "whats_new": ["New hadiths added", "New hadiths added", "New hadiths added"],
+            "download_link": "https://play.google.com/store/apps/details?id=com.alhadith",
+            "version_list": [
+                {
+                    "version": "1.0.0",
+                    "date": "2019-01-01",
+                    "description": "Al hadith",
+                    "apk_link": "drive.google.com"
+                },
+                {
+                    "version": "1.0.1",
+                    "date": "2019-01-01",
+                    "description": "Al hadith",
+                    "apk_link": "drive.google.com"
+                },
+                {
+                    "version": "1.0.2",
+                    "date": "2019-01-01",
+                    "description": "Al hadith",
+                    "apk_link": "drive.google.com"
+                }
+            ]
+        },
+        {
+            "id": "quran",
+            "whats_new": ["New quran mazid added", "New quran mazid added", "New quran mazid added"],
+            "download_link": "https://play.google.com/store/apps/details?id=com.quran",
+            "version_list": [
+                {
+                    "version": "1.0.0",
+                    "date": "2019-01-01",
+                    "description": "quran mazid",
+                    "apk_link": "drive.google.com"
+                },
+                {
+                    "version": "1.0.1",
+                    "date": "2019-01-01",
+                    "description": "quran mazid",
+                    "apk_link": "drive.google.com"
+                },
+                {
+                    "version": "1.0.2",
+                    "date": "2019-01-01",
+                    "description": "quran mazid",
+                    "apk_link": "drive.google.com"
+                }
+            ]
+        },
+        {
+            "id": "dua",
+            "whats_new": ["New Dua Ruqyah added", "New Dua Ruqyah added", "New Dua Ruqyah added"],
+            "download_link": "https://play.google.com/store/apps/details?id=com.dua",
+            "version_list": [
+                {
+                    "version": "1.0.0",
+                    "date": "2019-01-01",
+                    "description": "Dua Ruqyah",
+                    "apk_link": "drive.google.com"
+                },
+                {
+                    "version": "1.0.1",
+                    "date": "2019-01-01",
+                    "description": "Dua Ruqyah",
+                    "apk_link": "drive.google.com"
+                },
+                {
+                    "version": "1.0.2",
+                    "date": "2019-01-01",
+                    "description": "Dua Ruqyah",
+                    "apk_link": "drive.google.com"
+                }
+            ]
+        }
+    ]
+}
