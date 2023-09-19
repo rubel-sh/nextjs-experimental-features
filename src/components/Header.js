@@ -19,6 +19,9 @@ const Header = () => {
                 <Link href="/without-virtuoso-list" class="ml-4">
                     without-virtuoso-list
                 </Link>
+                <Link href="/intersection-observer" class="ml-4">
+                    Intersection Observer
+                </Link>
                 <div className="ml-auto flex items-center gap-x-2">
                     <p>FONT: </p>
                     <input
