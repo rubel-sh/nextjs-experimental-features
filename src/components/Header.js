@@ -1,9 +1,13 @@
 import { useGlobalContext } from "@/context/ContextProvider";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import React from "react";
 
 const Header = () => {
     const { fontSize, setFontSize } = useGlobalContext();
+    const router = useRouter();
+    const isVirtuosRelated = router.pathname.includes("virtuoso");
+
     return (
         <header class="bg-gray-900 text-white p-4">
             <nav class="container mx-auto flex items-center flex-wrap gap-5 w-full">

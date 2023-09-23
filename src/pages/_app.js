@@ -1,6 +1,7 @@
 import Header from "@/components/Header";
 import ContextProvider from "@/context/ContextProvider";
 import "@/styles/globals.css";
+import "react-tooltip/dist/react-tooltip.css";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 export default function App({ Component, pageProps }) {
