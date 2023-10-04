@@ -12,7 +12,7 @@ module.exports = {
                 "gradient-conic": "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
             },
             gridTemplateColumns: {
-                resSuraGrid: "repeat(auto-fit,minmax(min(220px,100%),1fr))",
+                resSuraGrid: "repeat(auto-fit,minmax(min(330px,100%),1fr))",
             },
         },
     },

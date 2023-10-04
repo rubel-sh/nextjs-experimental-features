@@ -32,11 +32,11 @@ const post = ({ data }) => {
                 src={countryInformations.flags.svg}
                 width={3000}
                 height={2000}
-                className="fixed inset-0 rounded-tr-lg"
+                className="fixed inset-x-0 inset-y-0 rounded-tr-lg object-cover filter blur-sm min-h-screen"
                 alt="country flag"
             />
-            <div className="py-5 px-10 border-slate-500 rounded-lg relative z-10 top-1/2 bg-white/30 backdrop-blur-lg text-slate-900">
-                <div className="mt-10 space-y-2">
+            <div className="py-5 px-10 border-slate-500 rounded-lg relative z-10  bg-white/30 backdrop-blur-lg text-slate-900">
+                <div className=" space-y-2">
                     <p className="text-2xl font-light ">Official Name: {countryInformations.name.official}</p>
                     <p className="text-2xl font-light mb-4">
                         CSR Todo: {isLoading ? "Loading ..." : tanstackData.data.title}
@@ -66,7 +66,7 @@ const post = ({ data }) => {
 
                 <button
                     onClick={() => router.back()}
-                    className="text-2xl uppercase font-medium mt-10 border border-slate-500 px-3 py-1 rounded-md hover:shadow-md"
+                    className="text-2xl uppercase font-medium mt-10 border border-slate-500 px-3 py-1 rounded-md hover:shadow-md bg-blue-500 text-white hover:bg-blue-700"
                 >
                     Go Back
                 </button>
