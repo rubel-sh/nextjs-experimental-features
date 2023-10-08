@@ -26,15 +26,20 @@ const Header = () => {
                 <Link href="/intersection-observer" class="ml-4">
                     Intersection Observer
                 </Link>
-                <div className="ml-auto flex items-center gap-x-2">
-                    <p>FONT: </p>
-                    <input
-                        type="range"
-                        class=""
-                        defaultValue={fontSize}
-                        onChange={(e) => setFontSize(e.target.value)}
-                    />
-                </div>
+                <Link href="/drawer" class="ml-4">
+                    Drawer
+                </Link>
+                {isVirtuosRelated && (
+                    <div className="ml-auto flex items-center gap-x-2">
+                        <p>FONT: </p>
+                        <input
+                            type="range"
+                            class=""
+                            defaultValue={fontSize}
+                            onChange={(e) => setFontSize(e.target.value)}
+                        />
+                    </div>
+                )}
             </nav>
         </header>
     );
