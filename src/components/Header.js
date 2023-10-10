@@ -26,6 +26,9 @@ const Header = () => {
                 <Link href="/intersection-observer" class="ml-4">
                     Intersection Observer
                 </Link>
+                <Link href="/optimistic-ui-update" class="ml-4">
+                    Optimistic Update
+                </Link>
                 <div className="ml-auto flex items-center gap-x-2">
                     <p>FONT: </p>
                     <input
