@@ -29,6 +29,9 @@ const Header = () => {
                 <Link href="/drawer" class="ml-4">
                     Drawer
                 </Link>
+                <Link href="/scrollbar" class="ml-4">
+                    Custom Scrollbar
+                </Link>
                 {isVirtuosRelated && (
                     <div className="ml-auto flex items-center gap-x-2">
                         <p>FONT: </p>
