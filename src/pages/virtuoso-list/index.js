@@ -26,9 +26,10 @@ const index = () => {
             <SecondaryHeader />
             <Container>
                 <Virtuoso
-                    style={{ height: "calc(100vh - 90px)" }}
+                    // style={{ height: "calc(100vh - 90px)" }}
                     data={personsList}
                     ref={virtuosoRef}
+                    useWindowScroll
                     itemContent={(index, user) => (
                         <div
                             id={`person-${index}`}
@@ -44,6 +45,7 @@ const index = () => {
                     )}
                 />
             </Container>
+            <footer className="py-20 text-center text-3xl font-bold bg-slate-100">I'm Footer</footer>
         </div>
     );
 };
