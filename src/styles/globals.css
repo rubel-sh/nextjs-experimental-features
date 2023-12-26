@@ -1,4 +1,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-body {}
+
+.hover-shadow {
+  transition: box-shadow 0.3s;
+  box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0);
+}
+
+.hover-shadow:hover {
+  /* transition: box-shadow 0.3s; */
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
